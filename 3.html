@@ -2,6 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript">
+      function nightDayHandler(self){
+        var target = document.querySelector('body');
+        if(self.value === 'night') {
+          target.style.backgroundColor = 'black';
+          target.style.color = 'white';
+          self.value = 'day';
+
+          var aList = document.querySelectorAll('a');
+          var i = 0;
+          while(i < aList.length){
+            aList[i].style.color = 'powderblue';
+            i = i + 1;
+          }
+        } else {
+          target.style.backgroundColor = 'white';
+          target.style.color = 'black';
+          self.value = 'night';
+
+          var aList = document.querySelectorAll('a');
+          var i = 0;
+          while(i < aList.length){
+            aList[i].style.color = 'blue';
+            i = i + 1;
+          }
+        }
+      }
+    </script>
     <title>WEB1 - html</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -16,6 +44,7 @@
         document.querySelector('body').style.backgroundColor = 'white';
         document.querySelector('body').style.color = 'black';
         "> -->
+
         <!-- <input id="night_day" type="button" value="night" onclick="
           if(document.getElementById('night_day').value === 'night') {
             document.querySelector('body').style.backgroundColor = 'black';
@@ -28,17 +57,8 @@
           }
         "> -->
 
-        <input type="button" value="night" onclick="
-          var target = document.querySelector('body');
-          if(this.value === 'night') {
-            target.style.backgroundColor = 'black';
-            target.style.color = 'white';
-            this.value = 'day';
-          } else {
-            target.style.backgroundColor = 'white';
-            target.style.color = 'black';
-            this.value = 'night';
-          }
+        <input id="night_day" type="button" value="night" onclick="
+          nightDayHandler(this);
         ">
 
       </h1>
